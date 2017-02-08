@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InstaClone</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <ul id="navbar">
+        <% if current_user %>
+          <li>Logged in as <%= current_user.name %></li>
+          <li><%= link_to 'Log Out', "/log-out" %></li>
+        <% else %>
+          <li><%= link_to "Log In", "/log-in" %></li>
+          <li><%= link_to "Create Account", "/users/new" %></li>
+        <% end %>
+        <%= yield(:navbar) %>
+      </ul>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

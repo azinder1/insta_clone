@@ -1,0 +1,5 @@
+<% content_for(:navbar) do %>
+  <li><%= link_to "Add Photo", "/" %></li>
+  <li><%= link_to "Edit Profile", edit_user_path %></li>
+  <li><%= link_to "Delete Account", user_path(current_user), :data => {:confirm => "Are you sure you want to delete this account?", :method => "delete"} %></li>
+<% end  %>
