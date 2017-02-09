@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div class="row">
+    <div class="">
+      <h2>Edit Photo:</h2>
+      <%= image_tag @photo.picture %>
+      <h3><%= @photo.user.name %></h3>
+      <h4><%= @photo.description %></h4>
+    </div>
+    <%= form_for [@user, @photo] do |f| %>
+    <%=  f.label :description %>
+    <%=  f.text_field :description %>
+    <%=  f.submit %>
+    <% end %>
+  </div>
+</div>

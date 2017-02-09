@@ -4,8 +4,15 @@ Rails.application.routes.draw do
   post "/log-in" => "sessions#create"
   get "/log-out" => "sessions#destroy", as: :log_out
 
+  get '/create-comment' => "photos#newComment"
+  post '/create-comment' => "photos#createComment"
+
 
   resources :users do
     resources :photos
+  end
+
+  resources :photos, only: [:index] do
+    resources :comments
   end
 end

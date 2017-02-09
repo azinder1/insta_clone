@@ -1,0 +1,5 @@
+<%= form_for [@photo, @comment] do |f| %>
+<%= f.label :text %>
+<%= f.text_field :text %>
+<%= submit_tag 'Add Comment' %>
+<% end %>

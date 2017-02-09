@@ -1,11 +1,15 @@
 <%= render 'nav' %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6">
+<div class="container no-padding">
+  <div class="row no-padding user-info-row">
+    <div class="col-sm-4">
 
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4 user-info">
+      <h1 class="text-right"><%= @user.name %></h1>
+      <h4 class="text-right"><%= @user.description%></h4>
+    </div>
+    <div class="col-sm-4">
       <%= image_tag current_user.avatar.url(:medium), :class => "avatar" %>
     </div>
   </div>
@@ -13,8 +17,10 @@
       <% if @user.photos.any? %>
         <% @user.photos.each do |photo| %>
         <div class="col-sm-4 picture-div">
-          <%= image_tag photo.picture %>
+          <%= link_to image_tag(photo.picture(:square)), user_photo_path(@user, photo) %>
           <p class="picture-description"><%= photo.description %></p>
+          <p><%= link_to "Edit", edit_user_photo_path(photo.user, photo) %></p>
+          <p><%= link_to "Delete", user_photo_path(@user, photo), :data => {:confirm => "Are you sure that you want to delete this picture", :method => "delete"} %></p>
         </div>
         <% end %>
         <% else %>

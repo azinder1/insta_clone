@@ -1,0 +1,22 @@
+<%= content_for(:navbar) do  %>
+  <li><%= link_to "All Photos", photos_path %></li>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="">
+      <%= image_tag @photo.picture %>
+      <h3><%= @photo.user.name %></h3>
+      <%= render "comments/form" %>
+      <h4><%= @photo.description %></h4>
+      <% if @photo.comments.any? %>
+      <ul class = "comments">
+        <% @photo.comments.each do |c| %>
+          <li>@<strong><%= c.user.name %></strong> <%= c.text %></li>
+        <% end %>
+      </ul>
+      <% end %>
+
+    </div>
+  </div>
+</div>

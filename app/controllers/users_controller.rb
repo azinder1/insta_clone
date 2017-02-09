@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authorize
+
   def show
     @user = current_user
   end
@@ -32,6 +32,12 @@ class UsersController < ApplicationController
   end
   def destroy
     @user = current_user
+    @user.photos.each do |p|
+      p.destroy
+    end
+    @user.comments.each do |p|
+      p.destroy
+    end
     @user.destroy
     redirect_to "/log-out"
   end

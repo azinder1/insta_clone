@@ -16,6 +16,22 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ body {
+   background-color: #CCC;
+ }
+
+.no-padding {
+  padding: 0;
+}
+
+.user-info-row {
+  margin-top: 50px;
+  .user-info {
+    position: relative;
+    left: 50px;
+  }
+}
+
 
 #navbar {
   display: inline-block;
@@ -32,4 +48,5 @@
 .avatar {
   border-radius: 1600px;
   border: 2px solid red;
+  float: right;
 }
