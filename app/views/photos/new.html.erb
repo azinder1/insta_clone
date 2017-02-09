@@ -1,0 +1,10 @@
+<h1>ADD A PHOTO</h1>
+
+
+<%= form_for [@user, @photo] do |f| %>
+<%= f.label :picture  %>
+<%= f.file_field :picture %>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<%= f.submit %>
+<% end %>

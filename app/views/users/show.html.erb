@@ -1,1 +1,27 @@
 <%= render 'nav' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+
+    </div>
+    <div class="col-sm-6">
+      <%= image_tag current_user.avatar.url(:medium), :class => "avatar" %>
+    </div>
+  </div>
+  <div class="row photo-row">
+      <% if @user.photos.any? %>
+        <% @user.photos.each do |photo| %>
+        <div class="col-sm-4 picture-div">
+          <%= image_tag photo.picture %>
+          <p class="picture-description"><%= photo.description %></p>
+        </div>
+        <% end %>
+        <% else %>
+          <h3>You don't have any photos yet</h3>
+        <% end %>
+
+
+    </div>
+  </div>
+</div>

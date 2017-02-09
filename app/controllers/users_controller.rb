@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-
+    @user = current_user
   end
 
   def new
@@ -40,6 +40,6 @@ private
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
   def user_edit_params
-    params.require(:user).permit(:name, :description)
+    params.require(:user).permit(:name, :description, :avatar)
   end
 end
