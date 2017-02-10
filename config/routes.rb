@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/log-out" => "sessions#destroy", as: :log_out
 
   get '/create-comment' => "photos#newComment"
-  post '/create-comment' => "photos#createComment"
+  post '/create-comment' => "comments#createComment"
 
 
   resources :users do
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :photos, only: [:index] do
+    get '/like', :to => "photos#like"
     resources :comments
   end
 end

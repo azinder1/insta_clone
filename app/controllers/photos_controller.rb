@@ -1,9 +1,15 @@
 class PhotosController < ApplicationController
 
-
+  def like
+    @user = current_user
+    @photo = Photo.find(params[:photo_id])
+    score = @photo.likes + 1
+    @photo.update({:likes => score})
+    redirect_to user_photo_path(current_user, @photo)
+  end
 
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order('created_at DESC')
   end
 
   def show

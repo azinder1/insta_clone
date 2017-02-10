@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def new
     @user = current_user
-    @photo = Photo.find(params[:id])
+    # @photo = Photo.find(params[:id])
     @comment = Comment.new
   end
 
